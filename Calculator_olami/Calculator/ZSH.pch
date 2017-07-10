@@ -1,0 +1,77 @@
+//
+//  ZSH.pch
+//  Calculator
+//
+//  Created by Scarlett on 2017/7/6.
+//  Copyright © 2017年 zsh. All rights reserved.
+//
+
+#ifndef ZSH_pch
+#define ZSH_pch
+
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+#define DLogFunc DLog(@"%s..%@",__func__,[self class])
+
+#define kScreenBounds [UIScreen mainScreen].bounds
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kNaviHeight 64
+#define kNaviTitleHeight 44
+#define kTabBarHeight 49
+
+#define ARGBColor(a,r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+
+#define zBackColor ARGBColor(255.0,255.0,90.0,156.0)
+
+#define GrayColor(gray) RGBColor(gray,gray,gray)
+#define RandomColor GrayColor(arc4random()%255)
+#define RedColor [UIColor redColor]
+#define BlueColor [UIColor blueColor]
+#define CyanColor [UIColor cyanColor]
+#define BrownColor [UIColor brownColor]
+#define ClearColor [UIColor clearColor]
+#define WhiteColor [UIColor whiteColor]
+#define BlackColor [UIColor blackColor]
+#define GreenColor [UIColor greenColor]
+#define OrangeColor [UIColor orangeColor]
+#define PurpleColor [UIColor purpleColor]
+#define YellowColor [UIColor yellowColor]
+#define MagentaColor [UIColor magentaColor]
+#define HEXColor(hex)  [UIColor hx_colorWithHexRGBAString:hex]
+
+// 数据永久化
+#define UserDefault [NSUserDefaults standardUserDefaults]
+
+// 文字大小
+#define textFont(font) [UIFont systemFontOfSize:font]
+
+
+// 弱引用
+#define myWeakSelf   __weak typeof(self) weakSelf = self
+
+// 强引用self
+#define myStrongSelf __strong typeof(weakSelf) strongSelf = weakSelf;
+
+// 图片名字
+#define imageName(name) [UIImage imageNamed:name]
+
+
+/**
+ *CUSID;//终端用户标识id，用来区分各个最终用户 例如:手机的IMEI
+ *appKey;//创建应用的appkey
+ *api;//要调用的API类型。现有3种：语义(nli)和分词(seg)和语音(asr)
+ *appSecret;//加密的秘钥，由应用管理自动生成
+ */
+
+#define AppID @"59548cd784aea6f385319c9a"
+#define AppKey @"dab826509d16420ebac51f00cb20c619"
+#define AppSecret @"42dfd597d1dd4e2aa16bcadb1290523b"
+#define macID @"80:e6:50:0d:5d:8c"
+
+
+#endif /* ZSH_pch */
